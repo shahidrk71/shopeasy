@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful E-commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Mono', monospace;
+            color: #ffffff;
+        }
+
+        /* Body and Background */
+        body {
+            background: linear-gradient(135deg, #e96443, #904e95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #f4d03f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Header */
+        .main-header {
+            margin: 50px auto 20px;
+            color: #f9f9f9;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #f4f4f4;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #ff6f61;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff4757;
+            transform: scale(1.1);
+        }
+
+        /* Promotion Section */
+        .promotion {
+            background: linear-gradient(135deg, #1e90ff, #ff6347);
+            padding: 50px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .promotion h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #f4d03f;
+        }
+
+        /* Product List */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .product-item {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 15px;
+            padding: 20px;
+            color: #f1f1f1;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-item h2 {
+            font-size: 1.5em;
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        /* Product Actions */
+        .view-btn, .add-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #ffffff;
+            transition: background 0.3s;
+        }
+
+        .view-btn {
+            background-color: #3498db;
+            margin-right: 10px;
+        }
+
+        .view-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .add-btn {
+            background-color: #27ae60;
+        }
+
+        .add-btn:hover {
+            background-color: #1f8b4a;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            padding: 20px;
+            color: #ffffff;
+            text-align: center;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .footer .social-links a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .footer .social-links a:hover {
+            color: #f39c12;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .logo {
+                font-size: 1.5em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ShopEasy</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#promotion" class="nav-btn">Deals</a>
+            <a href="#shop" class="nav-btn">Shop</a>
+            <a href="#" class="nav-btn">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Home Section -->
+        <header class="main-header" id="home">
+            <h1>Welcome to ShopEasy</h1>
+            <p>Bright, Bold, and Futuristic Shopping Experience!</p>
+            <a href="#shop" class="btn">Explore Products</a>
+        </header>
+        
+        <!-- Promotion Section -->
+        <section class="promotion" id="promotion">
+            <h2>Exclusive Deals</h2>
+            <p>Up to 50% off on selected items. Limited time only!</p>
+            <a href="#shop" class="btn">Shop Now</a>
+        </section>
+
+        <!-- Shop Section -->
+        <header class="shop-header" id="shop">
+            <h1>Our Products</h1>
+            <p>Select from our vibrant collection</p>
+        </header>
+        
+        <div class="product-list">
+            <!-- Sample Products -->
+            <div class="product-item">
+                <h2>Product 1</h2>
+                <p class="price">$49.99</p>
+                <p>Perfect for everyday adventures.</p>
+                <div class="product-actions">
+                    <a href="#" class="view-btn">View</a>
+                    <a href="#" class="add-btn">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <h2>Product 2</h2>
+                <p class="price">$69.99</p>
+                <p>Make a bold statement.</p>
+                <div class="product-actions">
+                    <a href="#" class="view-btn">View</a>
+                    <a href="#" class="add-btn">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <h2>Product 3</h2>
+                <p class="price">$89.99</p>
+                <p>Stylish and trendy.</p>
+                <div class="product-actions">
+                    <a href="#" class="view-btn">View</a>
+                    <a href="#" class="add-btn">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <h2>Product 4</h2>
+                <p class="price">$109.99</p>
+                <p>A perfect gift.</p>
+                <div class="product-actions">
+                    <a href="#" class="view-btn">View</a>
+                    <a href="#" class="add-btn">Add to Cart</a>
+                </div>
+            </
